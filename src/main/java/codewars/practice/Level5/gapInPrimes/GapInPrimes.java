@@ -9,7 +9,7 @@ public class GapInPrimes {
     public static void main(String[] args) {
         try {
             Arrays.stream(GapInPrimes.gap(6, 100, 110)).forEach(System.out::println);
-        }catch (NullPointerException exception){
+        } catch (NullPointerException exception) {
             System.out.println("Při tomto zadání neexistuje řešení.");
         }
 
@@ -23,10 +23,10 @@ public class GapInPrimes {
             BigInteger number = BigInteger.valueOf(i);
             if (number.isProbablePrime(1)) {
                 foundedPrimes.addLast(number.longValue());
-                if (foundedPrimes.size()==2) {
-                    long difference = foundedPrimes.getLast()-foundedPrimes.getFirst();
-                    if (difference==gap){
-                        return new long[] {foundedPrimes.getFirst(), foundedPrimes.getLast()};
+                if (foundedPrimes.size() == 2) {
+                    long difference = foundedPrimes.getLast() - foundedPrimes.getFirst();
+                    if (difference == gap) {
+                        return new long[]{foundedPrimes.getFirst(), foundedPrimes.getLast()};
                     } else {
                         foundedPrimes.removeFirst();
                     }
